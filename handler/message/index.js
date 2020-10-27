@@ -2,7 +2,7 @@ require('dotenv').config()
 const { decryptMedia, Client } = require('@open-wa/wa-automate')
 const moment = require('moment-timezone')
 moment.tz.setDefault('Asia/Jakarta').locale('id')
-const { downloader, cekResi, removebg, urlShortener, meme, translate, getLocationData } = require('../../lib')
+const { downloader, cekResi, removebg, urlShortener, Toxic, meme, translate, getLocationData } = require('../../lib')
 const { msgFilter, color, processTime, isUrl } = require('../../utils')
 const mentionList = require('../../utils/mention')
 const { uploadImages } = require('../../utils/fetcher')
@@ -64,6 +64,12 @@ module.exports = msgHandler = async (client = new Client(), message) => {
             if (!isGroupMsg) return client.reply(from, 'Maaf, perintah ini hanya dapat dipakai didalam grup! [Group Only]', id)
             if (!isGroupAdmins) return client.reply(from, 'Gagal, perintah ini hanya dapat digunakan oleh admin grup! [Admin Group Only]', id)
             await client.sendText(from, menuId.textAdmin())
+            break
+        case 'toxic':
+            Toxic().then(toxic => {
+                client.sendText(from, toxic)
+            })
+            insert(author, type, content, pushname, from, argv)
             break
         case 'donate':
         case 'donasi':
