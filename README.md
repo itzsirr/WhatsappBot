@@ -1,14 +1,27 @@
 <div align="center">
  
-# Whatsapp Bot - sticker creator
+# Whatsapp Bot 
 
  <summary>🥟 Help me!</summary>
+ ## Authors
 
- [Saweria](https://saweria.co/donate/yogasakti)
+👤 **Aditia**
+
+* Github: [@aditalf](https://github.com/aditalf)
+
+🙏 **Special Thanks To**
+
+* Github: [@YogaSakti](https://github.com/YogaSakti)
+
+<a href="https://www.instagram.com/aditiaalfians" target="_blank"><img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?&style=flat-square&logo=instagram&logoColor=white" alt="Instagram"></a>
+<a href="https://twitter.com/aditiaalfians" target="_blank"><img src="https://img.shields.io/badge/Twitter-%231877F2.svg?&style=flat-square&logo=Twitter&logoColor=white" alt="Twitter"></a>
+<a href="https://wa.me/6285799496179" target="_blank"><img src="https://img.shields.io/badge/Whatsapp-%808080.svg?&style=flat-square&logo=Whatsapp&logoColor=white" alt="Whatsapp"></a>
+
+ [Saweria](https://saweria.co/donate/aditiaalfian)
  
- [Trakteer](https://trakteer.id/red-emperor)
+ [Trakteer](https://trakteer.id/aditiaalfiansyah)
  
- [Paypal.me](https://paypal.me/yshputra)
+
  
 </details>
 </div>
@@ -23,8 +36,8 @@
 |       ✅       | Reply A Photo                    |
 |       ✅       | Image Url                        |
 |       ✅       | Animated sticker using giphy url |
-|       https://bit.ly/3hmgD4R       | sticker with no background       |
-|       https://bit.ly/3hmgD4R       | sticker meme      |
+|       ✅       | sticker with no background       |
+|       ✅       | sticker meme                     |
 
 
 | Downloader |                     Feature                |
@@ -50,7 +63,7 @@
 |       ✅        |   Demote User                   |
 |       ✅        |   Kick User                     |
 |       ✅        |   Delete bot message            |
-|       https://bit.ly/3hmgD4R        |   Mention All User      |
+|       ✅        |   Mention All User              |
 
 ## To-Do
  - Add More Feature
@@ -66,8 +79,8 @@ This project require NodeJS v12.
 Clone this project
 
 ```bash
-> git clone https://github.com/YogaSakti/imageToSticker.git
-> cd imageToSticker
+> git clone https://github.com/aditalf/WhatsappBot.git
+> cd WhatsappBot
 ```
 
 Install the dependencies:
