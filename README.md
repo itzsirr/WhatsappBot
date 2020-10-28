@@ -7,11 +7,11 @@
 
   👤**Aditia**
 
-* Github: [@aditalf](https://github.com/aditalf)
+* Github:[@aditalf](https://github.com/aditalf)
 
   🙏**Special Thanks To**
 
-* Github: [@YogaSakti](https://github.com/YogaSakti)
+* Github:[@YogaSakti](https://github.com/YogaSakti)
 
 <a href="https://www.instagram.com/aditiaalfians" target="_blank"><img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?&style=flat-square&logo=instagram&logoColor=white" alt="Instagram"></a>
 <a href="https://twitter.com/aditiaalfians" target="_blank"><img src="https://img.shields.io/badge/Twitter-%231877F2.svg?&style=flat-square&logo=Twitter&logoColor=white" alt="Twitter"></a>
