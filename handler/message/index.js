@@ -88,11 +88,16 @@ module.exports = msgHandler = async (client = new Client(), message) => {
                     console.log(`Sticker Processed for ${processTime(t, moment())} Second`)
                 })
             } else if (args[0] === 'nobg') {
-                /**
-                * This is Premium feature.
-                * Check premium feature at https://trakteer.id/red-emperor/showcase or chat Author for Information.
-                */
+                const encryptMedia = isQuotedImage ? quotedMsg : message
+                const mediaData = await decryptMedia(encryptMedia, uaOverride)
+                const mimetypes = isQuotedImage ? quotedMsg.mimetype : mimetype
+	        const base64img = `data:${mimetypes};base64,${mediaData.toString('base64')}`
+	        const base64imgnobg = await removebg(base64img)
                 client.reply(from, 'ehhh, what\'s that???', id)
+                    return client.sendImageAsSticker(from, base64imgnobg)
+                    .then(() => {
+                    console.log(`Sticker Processed for ${processTime(t, moment())} Second`)
+        })
             } else if (args.length === 1) {
                 if (!isUrl(url)) { await client.reply(from, 'Maaf, link yang kamu kirim tidak valid. [Invalid Link]', id) }
                 client.sendStickerfromUrl(from, url).then((r) => (!r && r !== undefined)
@@ -315,11 +320,16 @@ module.exports = msgHandler = async (client = new Client(), message) => {
             break
         case 'tagall':
         case 'everyone':
-            /**
-            * This is Premium feature.
-            * Check premium feature at https://trakteer.id/red-emperor/showcase or chat Author for Information.
-            */
-            client.reply(from, 'ehhh, what\'s that???', id)
+            if (!isGroupMsg) return client.reply(from, 'Perintah ini hanya bisa di gunakan dalam group!', id)
+            if (!isGroupAdmins) return client.reply(from, 'Perintah ini hanya bisa di gunakan oleh admin group', id)
+            const groupMem = await client.getGroupMembers(groupId)
+            let hehe = `${body.slice(6)} - ${pushname} \n`
+            for (let i = 0; i < groupMem.length; i++) {
+                hehe += '✨️'
+                hehe += ` @${groupMem[i].id.replace(/@c.us/g, '')}\n`
+            }
+            hehe += '----------------------'
+            await client.sendTextWithMentions(from, hehe)
             break
         case 'botstat': {
             const loadedMsg = await client.getAmountOfLoadedMessages()
