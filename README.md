@@ -2,8 +2,8 @@
  
 # Whatsapp Bot 
 
- <summary>🥟 Help me!</summary>
- Authors
+
+# Authors
 
   👤**Aditia**
 
