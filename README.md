@@ -3,13 +3,13 @@
 # Whatsapp Bot 
 
  <summary>🥟 Help me!</summary>
- ##Authors
+ Authors
 
-👤**Aditia**
+  👤**Aditia**
 
 * Github: [@aditalf](https://github.com/aditalf)
 
-🙏 **Special Thanks To**
+  🙏**Special Thanks To**
 
 * Github: [@YogaSakti](https://github.com/YogaSakti)
 
