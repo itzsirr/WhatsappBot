@@ -109,8 +109,8 @@ Untuk menghapus pesan bot (balas pesan bot dengan #del)`
 exports.textDonasi = () => {
     return `
 Hai, terimakasih telah menggunakan bot ini, untuk mendukung bot ini kamu dapat membantu dengan berdonasi melalui link berikut:
-1. Saweria: https://saweria.co/yogasakti
-2. Trakteer: https://trakteer.id/red-emperor 
+1. Saweria: https://saweria.co/aditiaalfian
+2. Trakteer: https://trakteer.id/aditiaalfiansyah 
 
 Donasi akan digunakan untuk pengembangan dan pengoperasian bot ini.
 
