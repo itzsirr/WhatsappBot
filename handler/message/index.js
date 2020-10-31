@@ -2,7 +2,7 @@ require('dotenv').config()
 const { decryptMedia, Client } = require('@open-wa/wa-automate')
 const moment = require('moment-timezone')
 moment.tz.setDefault('Asia/Jakarta').locale('id')
-const { downloader, cekResi, removebg, urlShortener, Toxic, meme, translate, getLocationData } = require('../../lib')
+const { downloader, cekResi, removebg, urlShortener, Toxic, meme, translate, getLocationData, waifu, jadwalShalat, gempa, stalk, dataCuaca, wikipedia, bapak } = require('../../lib')
 const { msgFilter, color, processTime, isUrl } = require('../../utils')
 const mentionList = require('../../utils/mention')
 const { uploadImages } = require('../../utils/fetcher')
@@ -22,9 +22,17 @@ module.exports = msgHandler = async (client = new Client(), message) => {
         const groupMembers = isGroupMsg ? await client.getGroupMembersId(groupId) : ''
         const isGroupAdmins = groupAdmins.includes(sender.id) || false
         const isBotGroupAdmins = groupAdmins.includes(botNumber) || false
-
-        // Bot Prefix
-        const prefix = '#'
+        const mess = {
+            wait: '[ WAIT ] Sedang di proses⏳ silahkan tunggu sebentar',
+            error: {
+                Yt3: '[❗] Terjadi kesalahan, tidak dapat meng konversi ke mp3!',
+                Yt4: '[❗] Terjadi kesalahan, mungkin error di sebabkan oleh sistem.',
+                Ig: '[❗] Terjadi kesalahan, mungkin karena akunnya private',
+                Iv: '[❗] Link yang anda kirim tidak valid!'
+            }
+        } 
+        const apiKey = '' 
+        const prefix = '#' 
         body = (type === 'chat' && body.startsWith(prefix)) ? body : ((type === 'image' && caption) && caption.startsWith(prefix)) ? caption : ''
         const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()
         const arg = body.trim().substring(body.indexOf(' ') + 1)
@@ -70,6 +78,120 @@ module.exports = msgHandler = async (client = new Client(), message) => {
                 client.sendText(from, toxic)
             })
             insert(author, type, content, pushname, from, argv)
+            break
+        case 'waifu':
+            const waifu = await get.get(`https://mhankbarbar.herokuapp.com/api/waifu?apiKey=${apiKey}`).json()
+            client.sendFileFromUrl(from, waifu.image, 'Waifu.jpg', `➸ Name : ${waifu.name}\n➸ Description : ${waifu.desc}\n\n➸ Source : ${waifu.source}`, id)
+            break
+        case 'loli':
+            const loli = await get.get('https://mhankbarbar.herokuapp.com/api/randomloli').json()
+            client.sendFileFromUrl(from, loli.result, 'loli.jpeg', 'Lolinya kak', id)
+            break
+        case 'jadwalshalat':
+            if (args.length === 1) return client.reply(from, '[❗] Kirim perintah *!jadwalShalat [daerah]*\ncontoh : *!jadwalShalat Tangerang*\nUntuk list daerah kirim perintah *!listDaerah*')
+            const daerah = body.slice(14)
+            const jadwalShalat = await get.get(`https://mhankbarbar.herokuapp.com/api/jadwalshalat?daerah=${daerah}&apiKey=${apiKey}`).json()
+            if (jadwalShalat.error) return client.reply(from, jadwalShalat.error, id)
+            const { Imsyak, Subuh, Dhuha, Dzuhur, Ashar, Maghrib, Isya } = await jadwalShalat
+            arrbulan = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+            tgl = new Date().getDate()
+            bln = new Date().getMonth()
+            thn = new Date().getFullYear()
+            const resultJadwal = `Jadwal shalat di ${daerah}, ${tgl}-${arrbulan[bln]}-${thn}\n\nImsyak : ${Imsyak}\nSubuh : ${Subuh}\nDhuha : ${Dhuha}\nDzuhur : ${Dzuhur}\nAshar : ${Ashar}\nMaghrib : ${Maghrib}\nIsya : ${Isya}`
+            client.reply(from, resultJadwal, id)
+            break
+        case 'listdaerah':
+            const listDaerah = await get('https://mhankbarbar.herokuapp.com/daerah').json()
+            client.reply(from, listDaerah.result, id)
+            break
+        case 'chord':
+            if (args.length === 1) return client.reply(from, 'Kirim perintah *!chord [query]*, contoh *!chord aku bukan boneka*', id)
+            const query__ = body.slice(7)
+            const chord = await get.get(`https://mhankbarbar.herokuapp.com/api/chord?q=${query__}&apiKey=${apiKey}`).json()
+            if (chord.error) return client.reply(from, chord.error, id)
+            client.reply(from, chord.result, id)
+            break
+        case 'anime':
+            if (args.length === 1) return client.reply(from, 'Kirim perintah *!anime [query]*\nContoh : *!anime darling in the franxx*', id)
+            const animek = await get.get(`https://mhankbarbar.herokuapp.com/api/kuso?q=${body.slice(7)}&apiKey=${apiKey}`).json()
+            if (animek.error) return client.reply(from, animek.error, id)
+            const res_animek = `Title: *${animek.title}*\n\n${animek.info}\n\nSinopsis: ${animek.sinopsis}\n\nLink Download:\n${animek.link_dl}`
+            client.sendFileFromUrl(from, animek.thumb, 'kusonime.jpg', res_animek, id)
+            break
+        case 'infogempa':
+            const bmkg = await get.get(`https://mhankbarbar.herokuapp.com/api/infogempa?apiKey=${apiKey}`).json()
+            const { potensi, koordinat, lokasi, kedalaman, magnitude, waktu, map } = bmkg
+            const hasil = `*${waktu}*\n📍 *Lokasi* : *${lokasi}*\n〽️ *Kedalaman* : *${kedalaman}*\n💢 *Magnitude* : *${magnitude}*\n🔘 *Potensi* : *${potensi}*\n📍 *Koordinat* : *${koordinat}*`
+            client.sendFileFromUrl(from, map, 'shakemap.jpg', hasil, id)
+            break
+        case 'igstalk':
+            if (args.length === 1)  return client.reply(from, 'Kirim perintah *!igStalk @username*\nConntoh *!igStalk @duar_amjay*', id)
+            const stalk = await get.get(`https://mhankbarbar.herokuapp.com/api/stalk?username=${args[1]}&apiKey=${apiKey}`).json()
+            if (stalk.error) return client.reply(from, stalk.error, id)
+            const { Biodata, Jumlah_Followers, Jumlah_Following, Jumlah_Post, Name, Username, Profile_pic } = stalk
+            const caps = `➸ *Nama* : ${Name}\n➸ *Username* : ${Username}\n➸ *Jumlah Followers* : ${Jumlah_Followers}\n➸ *Jumlah Following* : ${Jumlah_Following}\n➸ *Jumlah Postingan* : ${Jumlah_Post}\n➸ *Biodata* : ${Biodata}`
+            await client.sendFileFromUrl(from, Profile_pic, 'Profile.jpg', caps, id)
+            break
+        case 'cuaca':
+            if (args.length === 1) return client.reply(from, 'Kirim perintah *!cuaca [tempat]*\nContoh : *!cuaca tangerang', id)
+            const tempat = body.slice(7)
+            const weather = await get.get(`https://mhankbarbar.herokuapp.com/api/cuaca?q=${tempat}&apiKey=${apiKey}`).json()
+            if (weather.error) {
+                client.reply(from, weather.error, id)
+            } else {
+                client.reply(from, `➸ Tempat : ${weather.result.tempat}\n\n➸ Angin : ${weather.result.angin}\n➸ Cuaca : ${weather.result.cuaca}\n➸ Deskripsi : ${weather.result.desk}\n➸ Kelembapan : ${weather.result.kelembapan}\n➸ Suhu : ${weather.result.suhu}\n➸ Udara : ${weather.result.udara}`, id)
+            }
+            break
+        case 'ytmp3':
+            if (args.length === 1) return client.reply(from, 'Kirim perintah *!ytmp3 [linkYt]*, untuk contoh silahkan kirim perintah *!readme*')
+            let isLinks = args[1].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
+            if (!isLinks) return client.reply(from, mess.error.Iv, id)
+            try {
+                client.reply(from, mess.wait, id)
+                const resp = await get.get(`https://mhankbarbar.herokuapp.com/api/yta?url=${args[1]}&apiKey=${apiKey}`).json()
+                if (resp.error) {
+                    client.reply(from, resp.error, id)
+                } else {
+                    const { title, thumb, filesize, result } = await resp
+                    if (Number(filesize.split(' MB')[0]) >= 30.00) return client.reply(from, 'Maaf durasi video sudah melebihi batas maksimal!', id)
+                    client.sendFileFromUrl(from, thumb, 'thumb.jpg', `➸ *Title* : ${title}\n➸ *Filesize* : ${filesize}\n\nSilahkan tunggu sebentar proses pengiriman file membutuhkan waktu beberapa menit.`, id)
+                    await client.sendFileFromUrl(from, result, `${title}.mp3`, '', id).catch(() => client.reply(from, mess.error.Yt3, id))
+                    //await client.sendAudio(from, result, id)
+                }
+            } catch (err) {
+                client.sendText(ownerNumber[0], 'Error ytmp3 : '+ err)
+                client.reply(from, mess.error.Yt3, id)
+            }
+            break
+        case 'ytmp4':
+            if (args.length === 1) return client.reply(from, 'Kirim perintah *!ytmp4 [linkYt]*, untuk contoh silahkan kirim perintah *!readme*')
+            let isLin = args[1].match(/(?:https?:\/{2})?(?:w{3}\.)?youtu(?:be)?\.(?:com|be)(?:\/watch\?v=|\/)([^\s&]+)/)
+            if (!isLin) return client.reply(from, mess.error.Iv, id)
+            try {
+                client.reply(from, mess.wait, id)
+                const ytv = await get.get(`https://mhankbarbar.herokuapp.com/api/ytv?url=${args[1]}&apiKey=${apiKey}`).json()
+                if (ytv.error) {
+                    client.reply(from, ytv.error, id)
+                } else {
+                    if (Number(ytv.filesize.split(' MB')[0]) > 40.00) return client.reply(from, 'Maaf durasi video sudah melebihi batas maksimal!', id)
+                    client.sendFileFromUrl(from, ytv.thumb, 'thumb.jpg', `➸ *Title* : ${ytv.title}\n➸ *Filesize* : ${ytv.filesize}\n\nSilahkan tunggu sebentar proses pengiriman file membutuhkan waktu beberapa menit.`, id)
+                    await client.sendFileFromUrl(from, ytv.result, `${ytv.title}.mp4`, '', id).catch(() => client.reply(from, mess.error.Yt4, id))
+                }
+            } catch (er) {
+                client.sendText(ownerNumber[0], 'Error ytmp4 : '+ er)
+                client.reply(from, mess.error.Yt4, id)
+            }
+            break
+        case 'nulis':
+            if (args.length === 1) return client.reply(from, 'Kirim perintah *!nulis [teks]*', id)
+            const nulis = encodeURIComponent(body.slice(7))
+            client.reply(from, mess.wait, id)
+            let urlnulis = `https://mhankbarbar.herokuapp.com/nulis?text=${nulis}&apiKey=${apiKey}`
+            await fetch(urlnulis, {method: "GET"})
+            .then(res => res.json())
+            .then(async (json) => {
+                await client.sendFileFromUrl(from, json.result, 'Nulis.jpg', 'Nih anjim', id)
+            }).catch(e => client.reply(from, "Error: "+ e));
             break
         case 'donate':
         case 'donasi':
