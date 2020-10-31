@@ -32,45 +32,7 @@
 </details>
 </div>
 
-
-
-## Features
-
-| Sticker Creator |                Feature           |
-| :-----------: | :--------------------------------: |
-|       ✅       | Send Photo with Caption          |
-|       ✅       | Reply A Photo                    |
-|       ✅       | Image Url                        |
-|       ✅       | Animated sticker using giphy url |
-|       ✅       | sticker with no background       |
-|       ✅       | sticker meme                     |
-
-
-| Downloader |                     Feature                |
-| :------------: | :---------------------------------------------: |
-|       ✅        |   Tiktok Downloader (No WM & WM)              |
-|       ✅        |   Twitter Video Downloader                    |
-|       ✅        |   Facebook Video Downloader (SD & HD)         |
-|       ✅      |   Instagram Video Downloader                  |
-
-
-| Other  |                     Feature                     |
-| :------------: | :---------------------------------------------: |
-|       ✅        |   Create Custom meme (top text & bottom text)  |
-|       ✅        |   Translate text (quote only)                  |
-|       ✅        |   check data on the spread of Covid-19 in certain locations|
-|       ✅        |   Check Shipping info (indonesia only)         |
-|      BETA        |   Anti Spam                                   |
-
-
-| Grup Only  |                     Feature                     |
-| :------------: | :---------------------------------------------: |
-|       ✅        |   Promote User                  |
-|       ✅        |   Demote User                   |
-|       ✅        |   Kick User                     |
-|       ✅        |   Delete bot message            |
-|       ✅        |   Mention All User              |
-
+           
 ## To-Do
  - Add More Feature
  - More refactoring
