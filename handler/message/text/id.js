@@ -14,10 +14,11 @@ Dengan menggunakan source code / bot ini maka anda setuju dengan Syarat dan Kond
     • pembakaran hutan / penggundulan hutan
     • ujaran kebencian atau diskriminasi berdasarkan usia, jenis kelamin, identitas gender, ras, seksualitas, agama, kebangsaan
 
-Source Code BOT : https://github.com/YogaSakti/imageToSticker
+Source Code BOT : https://github.com/aditalf/WhatsappBot
+Special Thanks To : https://github.com/YogaSakti/imageToSticker
 NodeJS WhatsApp library: https://github.com/open-wa/wa-automate-nodejs
 
-Best regards, Yoga Sakti.`
+Best regards, Yoga Sakti and aditalf.`
 }
 
 exports.textMenu = (pushname) => {
@@ -26,61 +27,35 @@ Hi, ${pushname}! 👋️
 Berikut adalah beberapa fitur yang ada pada bot ini!✨
 
 Sticker Creator:
-1. *#sticker*
-Untuk merubah gambar menjadi sticker. 
-Penggunaan: kirim gambar dengan caption #sticker atau balas gambar yang sudah dikirim dengan #sticker
-
-2. *#sticker* _<Url Gambar>_
-Untuk merubah gambar dari url menjadi sticker. 
-Penggunaan: 
-
-3. *#gifsticker* _<Giphy URL>_ / *#stickergif* _<Giphy URL>_
-Untuk merubah gif menjadi sticker (Giphy Only)
-Penggunaan: Kirim pesan dengan format *gifsticker https://media.giphy.com/media/JUvI2c1ddyzkwK4RlV/giphy.gif*
-
-4. *#memesticker* _<teks atas>_ | _<teks bawah>_
-Untuk membuat sticker meme dengan teks atas dan bawah
-Penggunaan: kirim gambar dengan caption _*#meme aku atas | kamu bawah*_, atau juga bisa dengan membalas gambar yang sudah ada.
+1. *#sticker* = _Untuk merubah gambar menjadi sticker_
+2. *#sticker* = _Untuk merubah gambar dari url menjadi sticker_
+3. *#gifsticker* = _Untuk merubah gif menjadi sticker Giphy_
+4. *#memesticker* = _Untuk membuat sticker meme dengan teks atas dan bawah_
 
 Downloader:
-1. *#tiktok* _<tiktok url>_
-Untuk mengunduh video dari video tiktok.
-Penggunaan: kirim pesan dengan format *#tiktok https://www.tiktok.com/@itsandani/video/6869248690381425922* 
-
-2. *#fb* _<post/video url>_
-Untuk mengunduh video dari Facebook.
-Penggunaan: kirim pesan dengan format *#fb https://www.facebook.com/.....*
-
-3. *#ig* _<instagram post url>_
-Untuk mengunduh photo dan video dari instagram.
-Penggunaan: kirim pesan dengan format *#ig https://www.instagram.com/p/BPOd1vhDMIp/*
-
-4. *#twt* _<twitter post url>_
-Untuk mengunduh photo dan video dari Twitter.
-Penggunaan: kirim pesan dengan format *#twt https://twitter.com/ntsana_/status/1306108656887324672*
+1. *#tiktok* = _Untuk mengunduh video dari video tiktok_
+2. *#fb* = _Untuk mengunduh foto/video dari facebook_
+3. *#ig* = _Untuk mengunduh foto/video dari instagram_
+4. *#twt* = _Untuk mengunduh photo dan video dari Twitter_
+5. *#ytmp3* = _Untuk Mengunduh Musik Dari youtube_
+6. *#ytmp4* = _Untuk Mengunfuh Video Dari youtube_
 
 Lain-lain:
-1. *#translate* _<kode bahasa>_
-Untuk mengartikan pesan menjadi bahasa yang ditentukan.
-Penggunaan: Balas/quote/reply pesan yang ingin kamu translate dengan _*#translate id*_ <- id adalah kode bahasa. kode bahasa dapat dilihat di *https://bit.ly/33FVldE*
-
-2. *#resi* _<kurir>_ _<nomer resi>_
-Untuk memeriksa status pengiriman barang, daftar kurir: jne, pos, tiki, wahana, jnt, rpx, sap, sicepat, pcp, jet, dse, first, ninja, lion, idl, rex.
-Penggunaan: kirim pesan dengan format _*#resi jne 1238757632*_
-
-3. *#meme* _<teks atas>_ | _<teks bawah>_
-Untuk membuat meme dengan teks atas dan bawah
-Penggunaan: kirim gambar dengan caption _*#meme aku atas | kamu bawah*_, atau juga bisa dengan membalas gambar yang sudah ada.
-
-4. *#ceklokasi*
-Cek lokasi penyebaran covid-19 di daerah sekitarmu (kelurahan).
-Penggunaan: kirimkan lokasimu lalu balas/quote/reply lokasi yang kamu kirim dengan _*#ceklokasi*_
-
-5. *#tnc*
-Menampilkan Syarat dan Kondisi Bot.
-
-6. *#donasi*
-menampilkan informasi donasi.
+1. *#translate* = _Untuk mengartikan pesan menjadi bahasa yang ditentukan_
+2. *#resi* = _Untuk memeriksa status pengiriman barang_ 
+3. *#meme* = _Generate Random Meme_
+4. *#ceklokasi* = _Cek lokasi penyebaran covid-19 di daerah sekitarmu_
+5. *#tnc* = _menampilkan syarat dan kondisi bot_
+6. *#donasi* = _Support Bot dengan donasi_
+7. *#igstalk* = _untuk ngstalk akun instagram_
+8. *#cuaca* = _untuk menampilkan informasi cuaca daerah_
+9. *#anime* = _Mencari Anime Dengan Tittle_
+10. *#nulis* = _untuk menulis teks di buku_
+11. *#waifu* = _Mencari waifu random_
+12. *#jadwalshalat* = _Mengetahui Jadwal Solat Daerah_
+13. *#loli* = _Melihat random foto loli_
+14. *#infoGempa = _Untuk melihat info gempa_
+15. *#toxic = _Mendapatkan kata random toxic_
 
 Hope you have a great day!✨`
 }
