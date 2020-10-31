@@ -37,12 +37,11 @@
 # Link Api Key MhankBarBar
 • [Click here](https://mhankbarbar.herokuapp.com/api)
 
- 
----
-
-## Getting Started
-
-This project require NodeJS v12.
+## Software
+Node Js
+• [Click Here](https://nodejs.org/en/download/)
+Git 
+• [Click Here](https://git-scm.com/downloads)
 
 ### Install
 Clone this project
