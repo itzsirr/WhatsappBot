@@ -1,6 +1,4 @@
 <div align="center">
- 
-<h1 align="center">Whatsapp Bot</h1>
 
 
 <p align="center">
