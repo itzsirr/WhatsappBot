@@ -6,7 +6,7 @@
  
 </p>
 
-<img align="center" fit="fill" alt="GIF" src="https://media.giphy.com/media/836HiJc7pgzy8iNXCn/giphy.gif" />
+<img align="center" fit="fill" alt="GIF" src="https://media1.giphy.com/media/jAe22Ec5iICCk/giphy.gif?cid=82a1493bl4cg7cre1p1dfhcqnlgp8n0hx0xmo19f1scltfjk&rid=giphy.gif" />
 
 # Special Thanks To 🙏
 
