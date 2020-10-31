@@ -1,6 +1,14 @@
 <div align="center">
  
-# Whatsapp Bot 
+<h1 align="center">Whatsapp Bot</h1>
+
+
+<p align="center">
+  <img alt="Version"  src="https://img.shields.io/badge/-Whatsapp%20Bot-brightgreen?style=for-the-badge"/>
+ 
+</p>
+
+<img align="center" fit="fill" alt="GIF" src="https://media.giphy.com/media/836HiJc7pgzy8iNXCn/giphy.gif" />
 
 # Special Thanks To 🙏
 
